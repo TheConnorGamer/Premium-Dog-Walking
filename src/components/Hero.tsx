@@ -25,6 +25,15 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-warm-radial">
+      {/* Full-bleed background photo */}
+      <img
+        src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1920&q=80"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-warm/80" />
+      <div className="absolute inset-0 bg-gradient-to-r from-warm/90 via-warm/70 to-warm/40" />
       {/* Floating blobs */}
       {[...Array(4)].map((_, i) => (
         <div
@@ -42,27 +51,20 @@ const Hero = () => {
         />
       ))}
 
-      {/* Dog illustration - CSS art */}
+      {/* Dog photo */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute right-[10%] top-1/2 -translate-y-1/2 hidden lg:block"
+        className="absolute right-[5%] top-1/2 -translate-y-1/2 hidden lg:block"
       >
-        <div className="relative w-72 h-72">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-36 bg-bark/5 rounded-[60%] blur-xl" />
-          {/* Dog illustration using divs */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-40 h-28 bg-warm rounded-[40%] border-2 border-bark/20">
-            <div className="absolute -top-16 left-8 w-24 h-20 bg-warm rounded-full border-2 border-bark/20">
-              <div className="absolute top-4 left-3 w-2 h-2 bg-bark rounded-full" />
-              <div className="absolute top-4 right-3 w-2 h-2 bg-bark rounded-full" />
-              <div className="absolute top-8 left-1/2 -translate-x-1/2 w-3 h-2 bg-bark rounded-full" />
-              <div className="absolute -top-6 left-4 w-8 h-10 bg-bark/10 rounded-full animate-wag origin-bottom" />
-              <div className="absolute -top-6 right-4 w-8 h-10 bg-bark/10 rounded-full animate-wag origin-bottom" style={{ animationDelay: '0.1s' }} />
-            </div>
-            <div className="absolute -bottom-6 left-6 w-6 h-12 bg-warm border-2 border-bark/20 rounded-b-full" />
-            <div className="absolute -bottom-6 right-6 w-6 h-12 bg-warm border-2 border-bark/20 rounded-b-full" />
-          </div>
+        <div className="relative w-80 h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
+          <img
+            src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&q=80"
+            alt="Happy dog on a walk"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-bark/30 to-transparent" />
         </div>
       </motion.div>
 

@@ -7,12 +7,12 @@ import { GiPawPrint, GiDogBowl, GiHouse, GiHeartPlus, GiSittingDog, GiPathDistan
 gsap.registerPlugin(ScrollTrigger)
 
 const services = [
-  { icon: GiPawPrint, title: 'Solo Walks', desc: 'One-on-one attention for your pup. Personalised routes and pace tailored to your dog.', price: '£18', color: 'bg-terracotta/10 text-terracotta' },
-  { icon: GiSittingDog, title: 'Group Adventures', desc: 'Social walks with 2-4 compatible dogs. Great for socialisation and play.', price: '£14', color: 'bg-sage/10 text-sage' },
-  { icon: GiHouse, title: 'Pet Sitting', desc: 'In-home care while you are away. Feeding, playtime, cuddles, and updates.', price: '£45', color: 'bg-amber-50 text-amber-600' },
-  { icon: GiDogBowl, title: 'Puppy Visits', desc: 'Midday check-ins for puppies. Feeding, potty breaks, and essential socialisation.', price: '£12', color: 'bg-purple-50 text-purple-500' },
-  { icon: GiHeartPlus, title: 'Senior Care', desc: 'Gentle walks and attentive care for older dogs with special needs.', price: '£22', color: 'bg-rose-50 text-rose-400' },
-  { icon: GiPathDistance, title: 'Adventure Hikes', desc: 'Half-day countryside hikes for high-energy breeds. Pickup and drop-off included.', price: '£38', color: 'bg-teal-50 text-teal-600' }
+  { icon: GiPawPrint, title: 'Solo Walks', desc: 'One-on-one attention for your pup. Personalised routes and pace tailored to your dog.', price: '£18', color: 'bg-terracotta/10 text-terracotta', image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=80' },
+  { icon: GiSittingDog, title: 'Group Adventures', desc: 'Social walks with 2-4 compatible dogs. Great for socialisation and play.', price: '£14', color: 'bg-sage/10 text-sage', image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&q=80' },
+  { icon: GiHouse, title: 'Pet Sitting', desc: 'In-home care while you are away. Feeding, playtime, cuddles, and updates.', price: '£45', color: 'bg-amber-50 text-amber-600', image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&q=80' },
+  { icon: GiDogBowl, title: 'Puppy Visits', desc: 'Midday check-ins for puppies. Feeding, potty breaks, and essential socialisation.', price: '£12', color: 'bg-purple-50 text-purple-500', image: 'https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=1200&q=80' },
+  { icon: GiHeartPlus, title: 'Senior Care', desc: 'Gentle walks and attentive care for older dogs with special needs.', price: '£22', color: 'bg-rose-50 text-rose-400', image: 'https://images.unsplash.com/photo-1558788353-f76d92427f16?w=1200&q=80' },
+  { icon: GiPathDistance, title: 'Adventure Hikes', desc: 'Half-day countryside hikes for high-energy breeds. Pickup and drop-off included.', price: '£38', color: 'bg-teal-50 text-teal-600', image: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=1200&q=80' }
 ]
 
 const Services = () => {
@@ -40,8 +40,18 @@ const Services = () => {
             <motion.div
               key={svc.title}
               whileHover={{ y: -6 }}
-              className="warm-card p-8 group cursor-pointer"
+              className="warm-card overflow-hidden group cursor-pointer"
             >
+              <div className="relative h-40 overflow-hidden">
+                <img
+                  src={svc.image}
+                  alt={svc.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-bark/20 to-transparent" />
+              </div>
+              <div className="p-8">
               <div className={`w-16 h-16 rounded-2xl ${svc.color} flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform`}>
                 <svc.icon />
               </div>
@@ -50,6 +60,7 @@ const Services = () => {
               <div className="flex items-center justify-between">
                 <span className="text-2xl font-bold text-terracotta">{svc.price}</span>
                 <span className="text-bark-light text-xs">/ walk</span>
+              </div>
               </div>
             </motion.div>
           ))}

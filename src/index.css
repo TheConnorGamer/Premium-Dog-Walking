@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: auto; }
+  body { background: #faf7f2; color: #3d2c2a; }
+  ::selection { background: rgba(212, 132, 90, 0.2); color: #3d2c2a; }
+}
+
+@layer components {
+  .blob-shape { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  .warm-card { background: white; border-radius: 2rem; box-shadow: 0 10px 40px rgba(61, 44, 42, 0.05); }
+  .pill-btn { border-radius: 9999px; }
+  .section-padding { padding: 6rem 1.5rem; }
+  .text-balance { text-wrap: balance; }
+  .paw-shadow { box-shadow: 0 20px 60px rgba(212, 132, 90, 0.15); }
+}
